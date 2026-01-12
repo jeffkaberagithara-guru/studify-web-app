@@ -1,11 +1,13 @@
 import './App.css'
 import Header from './components/Header.jsx'
 import React from 'react';
+import Hero from './components/Hero.jsx';
 
 function App() {
   return (
     <>
-    <Header />
+      <Header />
+      <Hero />
     </>
   )
 }
