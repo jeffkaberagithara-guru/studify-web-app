@@ -1,3 +1,5 @@
+import { FaClipboard, FaCloudUploadAlt, FaLink, FaVolumeUp, FaFilePdf, FaFileWord, FaGlobe, FaFileAlt, FaHeadphones, FaBookOpen } from 'react-icons/fa';
+
 function Hero() {
   return (
     <section className="bg-white dark:bg-gray-900 min-h-screen flex items-center">
@@ -27,28 +29,28 @@ function Hero() {
               <div className="mt-8 flex flex-wrap gap-4">
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
                   <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <span className="text-lg">📝</span>
+                    <FaFileAlt className="text-lg text-cyan-500" />
                   </div>
                   <span className="text-sm font-medium">Text</span>
                 </div>
 
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
                   <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <span className="text-lg">📄</span>
+                    <FaFilePdf className="text-lg text-cyan-500" />
                   </div>
                   <span className="text-sm font-medium">PDF</span>
                 </div>
 
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
                   <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <span className="text-lg">📎</span>
+                    <FaFileWord className="text-lg text-cyan-500" />
                   </div>
                   <span className="text-sm font-medium">DOCX</span>
                 </div>
 
                 <div className="flex items-center space-x-2 text-gray-700 dark:text-gray-300">
                   <div className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
-                    <span className="text-lg">🔗</span>
+                    <FaGlobe className="text-lg text-cyan-500" />
                   </div>
                   <span className="text-sm font-medium">URLs</span>
                 </div>
@@ -57,19 +59,7 @@ function Hero() {
               <div className="mt-10 space-y-4">
                 <div className="group relative">
                   <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 group-focus-within:text-cyan-500">
-                    <svg
-                      className="w-5 h-5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"
-                      />
-                    </svg>
+                    <FaClipboard className="w-5 h-5" />
                   </div>
                   <textarea
                     placeholder="Paste your text here..."
@@ -81,19 +71,7 @@ function Hero() {
                   <label className="flex-1 cursor-pointer">
                     <input type="file" className="hidden" />
                     <div className="h-12 flex items-center justify-center space-x-2 border-2 border-dashed border-gray-300 dark:border-gray-700 hover:border-cyan-400 dark:hover:border-cyan-500 rounded-lg transition-colors group">
-                      <svg
-                        className="w-5 h-5 text-gray-400 group-hover:text-cyan-500"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                        />
-                      </svg>
+                      <FaCloudUploadAlt className="w-5 h-5 text-gray-400 group-hover:text-cyan-500" />
                       <span className="text-gray-600 dark:text-gray-400 font-medium">
                         Upload File
                       </span>
@@ -102,19 +80,7 @@ function Hero() {
 
                   <div className="flex-1 relative">
                     <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">
-                      <svg
-                        className="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                        />
-                      </svg>
+                      <FaLink className="w-5 h-5" />
                     </div>
                     <input
                       type="url"
@@ -170,19 +136,7 @@ function Hero() {
                   </div>
                   <div className="mt-4 flex items-center justify-center space-x-4">
                     <div className="w-10 h-10 bg-cyan-100 dark:bg-cyan-900/30 rounded-full flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-cyan-600 dark:text-cyan-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-                        />
-                      </svg>
+                      <FaVolumeUp className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
                     </div>
                     <span className="text-gray-700 dark:text-gray-300 font-medium">
                       Listening to learning
@@ -222,10 +176,10 @@ function Hero() {
                 </div>
 
                 <div className="absolute -top-4 -left-4 w-16 h-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex items-center justify-center">
-                  <span className="text-2xl">📄</span>
+                  <FaBookOpen className="text-2xl text-cyan-500" />
                 </div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 bg-white dark:bg-gray-800 rounded-xl shadow-lg flex items-center justify-center">
-                  <span className="text-2xl">🎧</span>
+                  <FaHeadphones className="text-2xl text-cyan-500" />
                 </div>
               </div>
             </div>
