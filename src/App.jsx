@@ -5,6 +5,7 @@ import Library from "./pages/Library.jsx";
 import Upload from "./pages/convert/Upload.jsx";
 import Summarize from "./pages/convert/Summarize.jsx";
 import TextToAudio from "./pages/convert/TextToAudio.jsx";
+import Footer from "./components/Footer.jsx";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/convert/summarize" element={<Summarize />} />
         <Route path="/convert/text-to-audio" element={<TextToAudio />} />
       </Routes>
+      <Footer />
     </>
   );
 }
