@@ -10,17 +10,11 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <Hero />
-            </>
-          }
-        />
+      {/* Sticky header on all pages */}
+      <Header />
 
+      <Routes>
+        <Route path="/" element={<Hero />} />
         <Route path="/library" element={<Library />} />
         <Route path="/convert/upload" element={<Upload />} />
         <Route path="/convert/summarize" element={<Summarize />} />

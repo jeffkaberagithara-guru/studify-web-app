@@ -34,7 +34,7 @@ function Header() {
   }, []);
 
   return (
-    <nav className="bg-white shadow dark:bg-gray-800">
+    <nav className="sticky top-0 z-50 bg-white shadow dark:bg-gray-800">
       <div className="container flex items-center justify-between p-4 mx-auto">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
@@ -56,7 +56,7 @@ function Header() {
           <div ref={convertRef} className="relative">
             <button
               onClick={() => setIsConvertOpen((prev) => !prev)}
-              className="flex items-center space-x-1 font-medium text-gray-800 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-cyan-400"
+              className="flex items-center space-x-1 font-medium text-white hover:text-cyan-600 dark:hover:text-cyan-400"
             >
               <span>Convert</span>
               <FaChevronDown
@@ -67,11 +67,11 @@ function Header() {
             </button>
 
             {isConvertOpen && (
-              <div className="absolute top-full left-0 mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 w-48 z-50 border dark:border-gray-700">
+              <div className="absolute top-full left-0 mt-2m bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 w-48 z-50 border dark:border-gray-700">
                 <Link
                   to="/convert/text-to-audio"
                   onClick={() => setIsConvertOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                  className="flex text-white items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
                 >
                   <FaMusic className="text-cyan-500" />
                   Text-to-Audio
@@ -80,7 +80,7 @@ function Header() {
                 <Link
                   to="/convert/summarize"
                   onClick={() => setIsConvertOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                  className="flex text-white items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
                 >
                   <FaFileAlt className="text-cyan-500" />
                   Summarize
@@ -89,7 +89,7 @@ function Header() {
                 <Link
                   to="/convert/upload"
                   onClick={() => setIsConvertOpen(false)}
-                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                  className="flex text-white items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
                 >
                   <FaGlobe className="text-cyan-500" />
                   File Upload
