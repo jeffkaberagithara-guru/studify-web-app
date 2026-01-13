@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import { useState, useRef, useEffect } from "react";
 import {
   FaSun,
   FaMoon,
@@ -11,12 +12,26 @@ import {
 } from "react-icons/fa";
 
 function Header() {
+  const [isConvertOpen, setIsConvertOpen] = useState(false);
+  const convertRef = useRef(null);
+
   const navLinkClass = ({ isActive }) =>
     `font-medium transition-colors duration-200 ${
       isActive
         ? "text-cyan-600 dark:text-cyan-400"
         : "text-gray-800 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-cyan-400"
     }`;
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (convertRef.current && !convertRef.current.contains(e.target)) {
+        setIsConvertOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <nav className="bg-white shadow dark:bg-gray-800">
@@ -38,37 +53,49 @@ function Header() {
           </NavLink>
 
           {/* Convert Dropdown */}
-          <div className="relative group">
-            <span className="cursor-pointer flex items-center space-x-1 font-medium text-gray-800 dark:text-gray-200 group-hover:text-cyan-600 dark:group-hover:text-cyan-400">
+          <div ref={convertRef} className="relative">
+            <button
+              onClick={() => setIsConvertOpen((prev) => !prev)}
+              className="flex items-center space-x-1 font-medium text-gray-800 dark:text-gray-200 hover:text-cyan-600 dark:hover:text-cyan-400"
+            >
               <span>Convert</span>
-              <FaChevronDown className="w-4 h-4" />
-            </span>
+              <FaChevronDown
+                className={`w-4 h-4 transition-transform ${
+                  isConvertOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
 
-            <div className="absolute hidden group-hover:block bg-white dark:bg-gray-800 shadow-lg rounded-md mt-2 py-2 w-48 z-50 border dark:border-gray-700">
-              <Link
-                to="/convert/text-to-audio"
-                className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
-              >
-                <FaMusic className="text-cyan-500" />
-                Text-to-Audio
-              </Link>
+            {isConvertOpen && (
+              <div className="absolute top-full left-0 mt-2 bg-white dark:bg-gray-800 shadow-lg rounded-md py-2 w-48 z-50 border dark:border-gray-700">
+                <Link
+                  to="/convert/text-to-audio"
+                  onClick={() => setIsConvertOpen(false)}
+                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                >
+                  <FaMusic className="text-cyan-500" />
+                  Text-to-Audio
+                </Link>
 
-              <Link
-                to="/convert/summarize"
-                className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
-              >
-                <FaFileAlt className="text-cyan-500" />
-                Summarize
-              </Link>
+                <Link
+                  to="/convert/summarize"
+                  onClick={() => setIsConvertOpen(false)}
+                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                >
+                  <FaFileAlt className="text-cyan-500" />
+                  Summarize
+                </Link>
 
-              <Link
-                to="/convert/upload"
-                className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
-              >
-                <FaGlobe className="text-cyan-500" />
-                File Upload
-              </Link>
-            </div>
+                <Link
+                  to="/convert/upload"
+                  onClick={() => setIsConvertOpen(false)}
+                  className="flex items-center gap-2 px-4 py-2 text-sm hover:bg-cyan-50 dark:hover:bg-cyan-900/20"
+                >
+                  <FaGlobe className="text-cyan-500" />
+                  File Upload
+                </Link>
+              </div>
+            )}
           </div>
 
           <NavLink to="/library" className={navLinkClass}>
@@ -91,7 +118,7 @@ function Header() {
             <FaUser className="w-5 h-5" />
           </Link>
 
-          {/* Mobile Button (logic later) */}
+          {/* Mobile Button */}
           <button className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
             <FaBars className="w-6 h-6" />
           </button>
