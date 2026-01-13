@@ -6,18 +6,6 @@ import Upload from "./pages/convert/Upload.jsx";
 import Summarize from "./pages/convert/Summarize.jsx";
 import TextToAudio from "./pages/convert/TextToAudio.jsx";
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-}
 
 function App() {
   return (
